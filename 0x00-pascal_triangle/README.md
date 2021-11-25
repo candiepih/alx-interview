@@ -5,6 +5,7 @@ All values outside the triangle are considered zero (0).
 
 ![pascal](https://user-images.githubusercontent.com/44834632/143431774-a28ac101-d89a-4b79-83ae-749f4e0d57f9.gif)
 
+(***Image courtesy of wikipedia***)
 
 ## Algorithm
 
