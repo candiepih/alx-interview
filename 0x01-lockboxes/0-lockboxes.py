@@ -12,14 +12,14 @@ def canUnlockAll(boxes):
     Returns:
         True if you can open all the lockboxes, False otherwise
     """
-    unlocked = {}
+    unlocked = set()
 
     for box_id, box in enumerate(boxes):
         if len(box) == 0 or box_id == 0:
-            unlocked[box_id] = "always_unlocked"
+            unlocked.add(box_id)
         for key in box:
             if key < len(boxes) and key != box_id:
-                unlocked[key] = key
+                unlocked.add(key)
         if len(unlocked) == len(boxes):
             return True
     return False
