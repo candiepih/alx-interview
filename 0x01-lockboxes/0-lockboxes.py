@@ -3,7 +3,6 @@
 Contains method that finds the keys to open other lockboxes
 """
 
-
 def canUnlockAll(boxes):
     """
     Function that determines if you can open all the lockboxes
@@ -12,11 +11,17 @@ def canUnlockAll(boxes):
     Returns:
         True if you can open all the lockboxes, False otherwise
     """
-    keys = list(range(1, len(boxes)))
-    for i in range(len(boxes)):
-        for key in keys:
-            if key in boxes[i]:
-                keys.remove(key)
-    if len(keys) == 0:
-        return True
+    unlocked_boxes = [0]
+    for box_id, box in enumerate(boxes):
+        if not box:
+            continue
+        elif box_id == 0:
+            unlocked_boxes += box
+
+        for key in box:
+            if key < len(boxes) and key not in unlocked_boxes and key != box_id:
+                unlocked_boxes.append(key)
+        if len(unlocked_boxes) == len(boxes):
+            return True
+
     return False
