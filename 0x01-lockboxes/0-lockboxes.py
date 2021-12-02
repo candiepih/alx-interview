@@ -13,7 +13,6 @@ def canUnlockAll(boxes):
         True if you can open all the lockboxes, False otherwise
     """
     keys = list(range(1, len(boxes)))
-    print(keys)
     for i in range(len(boxes)):
         for key in keys:
             if key in boxes[i]:
