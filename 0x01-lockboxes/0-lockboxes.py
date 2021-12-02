@@ -16,9 +16,6 @@ def canUnlockAll(boxes):
     for box_id, box in enumerate(boxes):
         if not box:
             continue
-        elif box_id == 0:
-            unlocked_boxes += box
-            continue
 
         for key in box:
             if key < len(boxes) and key not in unlocked_boxes and key != box_id:
