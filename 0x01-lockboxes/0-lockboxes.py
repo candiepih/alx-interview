@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Lockboxes
-Contains method that finds the keys to open other lockboxes
+"""Lockboxes Contains method that finds the keys to
+open other lockboxes
 """
 
 
@@ -20,6 +20,4 @@ def canUnlockAll(boxes):
             if key < len(boxes) and key not in unlocked_boxes and key != box_id:
                 unlocked_boxes.append(key)
 
-    if len(unlocked_boxes) == len(boxes):
-        return True
-    return False
+    return len(unlocked_boxes) == len(boxes)
