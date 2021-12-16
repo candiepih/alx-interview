@@ -3,8 +3,8 @@
 This module contains the function that displays the
 stats from the standard input
 """
-import sys
 import re
+import sys
 
 
 status_codes = {200: 0, 301: 0, 400: 0, 401: 0,
