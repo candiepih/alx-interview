@@ -69,11 +69,11 @@ def print_logs():
     Returns:
         None
     """
+    print("File size: {}".format(size_sumation))
     for k, v in status_codes.items():
         if v == 0:
             continue
         print("{}: {}".format(k, v))
-    print("File size: {}".format(size_sumation))
 
 
 if __name__ == "__main__":
