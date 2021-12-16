@@ -29,9 +29,9 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             std_line = line.replace("\n", "")
-            log_list = re.split('- |"|"| " " ', str(std_line))
+            log_list = re.split('- | "|" | " " ', str(std_line))
             try:
-                codes = log_list[-1].split(" ")[1:]
+                codes = log_list[-1].split(" ")
                 status_codes[int(codes[0])] += 1
                 print_counter += 1
                 size_summation += int(codes[1])
