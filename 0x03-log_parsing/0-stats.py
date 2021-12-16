@@ -13,20 +13,6 @@ print_counter = 0
 size_summation = 0
 
 
-def get_status_and_size(string):
-    """
-    Gets string of codes and size to list
-
-    Args:
-        string (str): string of integers delimited by space
-
-    Returns:
-        list of the integers
-    """
-    codes_list = string.split(" ")[1:]
-    return codes_list
-
-
 def split_line(std_line):
     """
     Creates a list from a line with delimiters
@@ -52,7 +38,7 @@ def found_errors(input_list):
     """
     if len(input_list) != 4:
         return 1
-    parsed_codes = get_status_and_size(input_list[3])
+    parsed_codes = input_list[3].split(" ")[1:]
     try:
         if int(parsed_codes[0]) not in status_codes.keys()\
                 or parsed_codes[0] == "":
@@ -75,9 +61,8 @@ def print_logs():
     """
     print("File size: {}".format(size_summation))
     for k, v in status_codes.items():
-        if v == 0:
-            continue
-        print("{}: {}".format(k, v))
+        if v != 0:
+            print("{}: {}".format(k, v))
 
 
 if __name__ == "__main__":
@@ -86,10 +71,11 @@ if __name__ == "__main__":
             log_list = split_line(line)
             if found_errors(log_list):
                 continue
-            codes = get_status_and_size(log_list[3])
+            codes = log_list[3].split(" ")[1:]
             size_summation += int(codes[1])
             if print_counter % 10 == 0 and print_counter != 0:
                 print_logs()
             print_counter += 1
     except():
         print_logs()
+        raise
