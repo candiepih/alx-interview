@@ -28,7 +28,8 @@ if __name__ == "__main__":
             log_list = re.split('- | "|" | " " ', str(std_line))
             try:
                 codes = log_list[-1].split(" ")
-                status_codes[int(codes[0])] += 1
+                if int(codes[0]) in status_codes:
+                    status_codes[int(codes[0])] += 1
                 print_counter += 1
                 size_summation += int(codes[1])
                 if print_counter % 10 == 0 and print_counter != 0:
