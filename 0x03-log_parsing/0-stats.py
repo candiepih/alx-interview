@@ -5,4 +5,6 @@ import sys
 
 
 for line in sys.stdin:
-    print(line)
+    line = line.strip()
+    key, value = line.split('\t')
+    print('{}\t{}'.format(key, value))
