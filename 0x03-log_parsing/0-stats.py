@@ -13,45 +13,6 @@ print_counter = 0
 size_summation = 0
 
 
-def split_line(std_line):
-    """
-    Creates a list from a line with delimiters
-
-    Args:
-        std_line (str): string to split
-
-    Returns: list of strings delimited
-    """
-    std_line = std_line.replace("\n", "")
-    parsed_data = re.split('- | "|" | " " ', str(std_line))
-    return parsed_data
-
-
-def found_errors(input_list):
-    """
-    Test the inputs in array for errors
-
-    Args:
-        input_list (list): list of inputs to test
-
-    Returns: (1) if error found and (0) otherwise
-    """
-    if len(input_list) != 4:
-        return 1
-    parsed_codes = input_list[3].split(" ")
-    try:
-        if int(parsed_codes[0]) not in status_codes.keys()\
-                or parsed_codes[0] == "":
-            return 1
-        for code in parsed_codes:
-            code = int(code)
-            if type(code) != int:
-                return 1
-    except():
-        return 1
-    return 0
-
-
 def print_logs():
     """
     Prints status codes to the logs
@@ -67,15 +28,18 @@ def print_logs():
 if __name__ == "__main__":
     try:
         for line in sys.stdin:
-            log_list = split_line(line)
-            if found_errors(log_list):
-                continue
-            codes = log_list[3].split(" ")
-            status_codes[int(codes[0])] += 1
-            print_counter += 1
-            size_summation += int(codes[1])
-            if print_counter % 10 == 0 and print_counter != 0:
-                print_logs()
+            std_line = line.replace("\n", "")
+            log_list = re.split('- | "|" | " " ', str(std_line))
+            try:
+                codes = log_list[3].split(" ")
+                status_codes[int(codes[0])] += 1
+                print_counter += 1
+                size_summation += int(codes[1])
+                if print_counter % 10 == 0 and print_counter != 0:
+                    print_logs()
+            except():
+                pass
+        print_logs()
     except(KeyboardInterrupt):
         print_logs()
         raise
