@@ -38,7 +38,7 @@ def found_errors(input_list):
     """
     if len(input_list) != 4:
         return 1
-    parsed_codes = input_list[3].split(" ")[1:]
+    parsed_codes = input_list[3].split(" ")
     try:
         if int(parsed_codes[0]) not in status_codes.keys()\
                 or parsed_codes[0] == "":
@@ -70,7 +70,7 @@ try:
         log_list = split_line(line)
         if found_errors(log_list):
             continue
-        codes = log_list[3].split(" ")[1:]
+        codes = log_list[3].split(" ")
         if print_counter % 10 == 0 and print_counter != 0:
             print_logs()
         size_summation += int(codes[1])
