@@ -36,7 +36,8 @@ if __name__ == "__main__":
                 if print_counter % 10 == 0:
                     print_logs()
             except():
-                print_logs()
+                pass
+        print_logs()
     except KeyboardInterrupt:
         print_logs()
         raise
