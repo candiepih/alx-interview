@@ -36,8 +36,8 @@ def found_errors(input_list):
 
     Returns: (1) if error found and (0) otherwise
     """
-    # if len(input_list) != 4:
-    #     return 1
+    if len(input_list) != 4:
+        return 1
     parsed_codes = input_list[3].split(" ")[1:]
     try:
         if int(parsed_codes[0]) not in status_codes.keys()\
@@ -65,17 +65,16 @@ def print_logs():
             print("{}: {}".format(k, v))
 
 
-if __name__ == "__main__":
-    try:
-        for line in sys.stdin:
-            log_list = split_line(line)
-            if found_errors(log_list):
-                continue
-            codes = log_list[3].split(" ")[1:]
-            size_summation += int(codes[1])
-            if print_counter % 10 == 0 and print_counter != 0:
-                print_logs()
-            print_counter += 1
-    except():
-        print_logs()
-        raise
+try:
+    for line in sys.stdin:
+        log_list = split_line(line)
+        if found_errors(log_list):
+            continue
+        codes = log_list[3].split(" ")[1:]
+        if print_counter % 10 == 0 and print_counter != 0:
+            print_logs()
+        size_summation += int(codes[1])
+        print_counter += 1
+except():
+    print_logs()
+    raise
