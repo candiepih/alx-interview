@@ -60,7 +60,7 @@ def print_logs():
         None
     """
     print("File size: {}".format(size_summation))
-    for k, v in status_codes.items():
+    for k, v in sorted(status_codes.items()):
         if v != 0:
             print("{}: {}".format(k, v))
 
@@ -71,9 +71,9 @@ try:
         if found_errors(log_list):
             continue
         codes = log_list[3].split(" ")
+        size_summation += int(codes[1])
         if print_counter % 10 == 0 and print_counter != 0:
             print_logs()
-        size_summation += int(codes[1])
         print_counter += 1
 except():
     print_logs()
