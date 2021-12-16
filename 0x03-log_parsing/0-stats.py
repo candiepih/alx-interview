@@ -76,6 +76,6 @@ if __name__ == "__main__":
             size_summation += int(codes[1])
             if print_counter % 10 == 0 and print_counter != 0:
                 print_logs()
-    except():
+    except(KeyboardInterrupt):
         print_logs()
         raise
