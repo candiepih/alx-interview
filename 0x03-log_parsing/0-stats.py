@@ -5,8 +5,6 @@ stats from the standard input
 """
 import re
 import sys
-
-
 status_codes = {200: 0, 301: 0, 400: 0, 401: 0,
                 403: 0, 404: 0, 405: 0, 500: 0}
 print_counter = 0
@@ -16,8 +14,6 @@ size_summation = 0
 def print_logs():
     """
     Prints status codes to the logs
-    Returns:
-        None
     """
     print("File size: {}".format(size_summation))
     for k, v in sorted(status_codes.items()):
