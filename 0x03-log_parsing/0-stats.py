@@ -64,17 +64,18 @@ def print_logs():
             print("{}: {}".format(k, v))
 
 
-try:
-    for line in sys.stdin:
-        log_list = split_line(line)
-        if found_errors(log_list):
-            continue
-        codes = log_list[3].split(" ")
-        status_codes[int(codes[0])] += 1
-        print_counter += 1
-        size_summation += int(codes[1])
-        if print_counter % 10 == 0 and print_counter != 0:
-            print_logs()
-except():
-    print_logs()
-    raise
+if __name__ == "__main__":
+    try:
+        for line in sys.stdin:
+            log_list = split_line(line)
+            if found_errors(log_list):
+                continue
+            codes = log_list[3].split(" ")
+            status_codes[int(codes[0])] += 1
+            print_counter += 1
+            size_summation += int(codes[1])
+            if print_counter % 10 == 0 and print_counter != 0:
+                print_logs()
+    except():
+        print_logs()
+        raise
