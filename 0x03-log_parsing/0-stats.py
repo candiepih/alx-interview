@@ -39,17 +39,17 @@ def found_errors(input_list):
     if len(input_list) != 4:
         return 1
     parsed_codes = input_list[3].split(" ")[1:]
-    try:
-        if int(parsed_codes[0]) not in status_codes.keys()\
-                or parsed_codes[0] == "":
-            return 1
-        status_codes[int(parsed_codes[0])] += 1
-        for code in parsed_codes:
-            code = int(code)
-            if type(code) != int:
-                return 1
-    except():
-        return 1
+    # try:
+    #     if int(parsed_codes[0]) not in status_codes.keys()\
+    #             or parsed_codes[0] == "":
+    #         return 1
+    #     status_codes[int(parsed_codes[0])] += 1
+    #     for code in parsed_codes:
+    #         code = int(code)
+    #         if type(code) != int:
+    #             return 1
+    # except():
+    #     return 1
     return 0
 
 
