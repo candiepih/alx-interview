@@ -31,10 +31,10 @@ if __name__ == "__main__":
             std_line = line.replace("\n", "")
             log_list = re.split('- | "|" | " " ', str(std_line))
             try:
-                codes = log_list[-1].split(" ")
+                codes = log_list[3].split(" ")
                 status_codes[int(codes[0])] += 1
-                size_summation += int(codes[1])
                 print_counter += 1
+                size_summation += int(codes[1])
                 if print_counter % 10 == 0 and print_counter != 0:
                     print_logs()
             except():
