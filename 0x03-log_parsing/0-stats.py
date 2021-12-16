@@ -4,5 +4,5 @@
 import sys
 
 
-data = sys.stdin.readline().strip().split()
-print(data)
+for line in sys.stdin:
+    print(line)
