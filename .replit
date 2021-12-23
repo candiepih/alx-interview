@@ -1,2 +1,0 @@
-language = "python3"
-run = "0x03-log_parsing/0-generator.py | 0x03-log_parsing/0-stats.py"
