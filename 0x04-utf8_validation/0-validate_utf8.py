@@ -19,8 +19,6 @@ def validUTF8(data):
     for byte in data:
         if byte >> 7 == 0:
             continue
-        elif byte >> 6 == 0b100:
-            continue
         elif byte >> 5 == 0b110:
             continue
         elif byte >> 4 == 0b1110:
