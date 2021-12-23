@@ -20,17 +20,12 @@ def validUTF8(data):
         if byte >> 7 == 0:
             continue
         elif byte >> 5 == 0b110:
-            for i in range(1, 5):
-                if data[i] >> 6 != 0b10:
-                    return False
+            continue
         elif byte >> 4 == 0b1110:
-            for i in range(1, 4):
-                if data[i] >> 6 != 0b10:
-                    return False
+            continue
         elif byte >> 3 == 0b11110:
-            for i in range(1, 3):
-                if data[i] >> 6 != 0b10:
-                    return False
+            continue
         else:
             return False
     return True
+
