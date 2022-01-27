@@ -18,6 +18,8 @@ def makeChange(coins, total):
         (0) if total is 0 or less
         (-1) if no number of the coins can meet the total
     """
+    if total <= 0:
+        return 0
     min_coins = [0] + [float('inf')] * total
     for i in range(1, total + 1):
         for coin in coins:
