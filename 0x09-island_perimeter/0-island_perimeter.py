@@ -33,6 +33,9 @@ def island_perimeter(grid):
         for j in range(len(grid[i])):
             if grid[i][j] != 1:
                 continue
-            perimeter += check_perimeter(grid, i, j)
+            p = check_perimeter(grid, i, j)
+            if perimeter > 1 and p == 4:
+                return 0
+            perimeter += p
 
     return perimeter
