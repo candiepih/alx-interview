@@ -18,7 +18,7 @@ def prime_numbers_between(n):
     prime_numbers = 0
     for i in range(2, n + 1):
         is_prime = True
-        for j in range(2, i):
+        for j in range(2, i // 2 + 1):
             if i % j == 0:
                 is_prime = False
         if is_prime:
@@ -44,14 +44,9 @@ def isWinner(x, nums):
     for i in range(x):
         prime_nums = prime_numbers_between(nums[i])
         is_even = prime_nums % 2 == 0
-        if ben == maria:
-            ben += 1 if is_even else 0
-            maria += 1 if not is_even else 0
-        elif ben > maria:
-            ben += 1 if is_even else 0
-            maria += 1 if not is_even else 0
-        elif ben < maria:
-            maria += 1 if is_even else 0
-            ben += 1 if not is_even else 0
+        if is_even:
+            ben += 1
+        else:
+            maria += 1
     winner = "Ben" if ben > maria else "Maria"
     return winner
