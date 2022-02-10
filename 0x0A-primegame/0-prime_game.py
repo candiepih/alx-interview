@@ -21,6 +21,7 @@ def prime_numbers_between(n):
         for j in range(2, i // 2 + 1):
             if i % j == 0:
                 is_prime = False
+                break
         if is_prime:
             prime_numbers += 1
     return prime_numbers
