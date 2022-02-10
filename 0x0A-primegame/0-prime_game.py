@@ -16,6 +16,8 @@ def prime_numbers_between(n):
         int: the number of prime numbers between 1 and n
     """
     prime_numbers = 0
+    if n < 2:
+        return 0
     for i in range(2, n + 1):
         is_prime = True
         for j in range(2, i // 2 + 1):
