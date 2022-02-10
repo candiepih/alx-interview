@@ -37,10 +37,10 @@ def isWinner(x, nums):
     Returns:
         string: the winner of the game (Ben or Maria)
     """
+    if not x or not nums:
+        return None
     ben = 0
     maria = 0
-    if x is None or nums is None or x == 0 or nums == []:
-        return None
     for i in range(x):
         prime_nums = prime_numbers_between(nums[i])
         if prime_nums % 2 == 0:
