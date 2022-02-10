@@ -39,17 +39,15 @@ def isWinner(x, nums):
     """
     ben = 0
     maria = 0
-    if not x or not nums:
+    if x is None or nums is None or x == 0 or nums == []:
         return None
     for i in range(x):
         prime_nums = prime_numbers_between(nums[i])
-        is_even = prime_nums % 2 == 0
-        if is_even:
+        if prime_nums % 2 == 0:
             ben += 1
         else:
             maria += 1
-    if ben > maria:
-        return "Ben"
-    elif maria > ben:
-        return "Maria"
-    return None
+    if ben == maria:
+        return None
+    winner = "Ben" if ben > maria else "Maria"
+    return winner
